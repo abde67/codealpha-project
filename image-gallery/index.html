@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Image Gallery</title>
+  <link rel="stylesheet" href="style.css">
+
+
+  
+</head>
+<body>
+       <div class="addimage">
+           <button  onclick="showForm()">Add Image</button>
+         
+       </div>
+        
+<div id="form-container">
+ 
+    <input type="text" id="image-url" placeholder="Enter image URL" />
+  <input type="file" id="image-file" accept="image/*" />
+ 
+  <button onclick="addImage()">Add</button>
+</div>
+
+
+  
+    <div class="container">
+      <div id="gallery"></div>
+                <div><img id="backToGallery" onclick="backToGallery()" src="icons/arrow-left.svg" alt=""></div>
+            <img id="prev-image" onclick="prevImage()" src="icons/chevron-left.svg" alt="">
+            <img id="next-image" onclick="nextImage()" src="icons/chevron-right.svg" alt="">
+   <div id="full-view">
+ 
+  <img id="backToGallery" onclick="backToGallery()" src="icons/arrow-left.svg" alt="">
+  <img id="prev-image" onclick="prevImage()" src="icons/chevron-left.svg" alt="">
+  <img id="next-image" onclick="nextImage()" src="icons/chevron-right.svg" alt="">
+
+ 
+   
+   <div id="fullimage">
+     <div  class="main-image-wrapper">
+      <img class="full" id="main-image" src="" alt="" />
+       
+       <img id="download-btn" onclick="downloadImage()"  src="icons/download.svg" alt="">
+       <img onclick="deleteImage()" class="deletimage" src="icons/delete-circle.svg" alt="">
+    </div>
+     <div class="related-images" id="related"></div>
+   </div>
+ </div>
+
+
+    </div>
+      <script src="script.js"></script>
+   
+</body>
+</html>     
