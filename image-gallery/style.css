@@ -1,0 +1,299 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+h1 {
+  text-align: center;
+}
+
+#gallery {
+ 
+ column-width: 220px;
+  column-gap: 12px;
+  padding: 10px;
+
+
+}
+.image-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+#gallery img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+#gallery img:hover {
+  transform: scale(1.1);
+  
+}
+
+#full-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 20px;
+  z-index: 10;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Main full image container with white background */
+#fullimage {
+  width: 90vw;
+  height: auto;
+  background: white;
+  padding: 20px;
+  
+  border-radius: 6px;
+ 
+}
+
+/* Full image styling */
+#main-image {
+    display: block;
+  max-width: 100%;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  transition: opacity 0.5s ease;
+}
+
+
+
+#related img {
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: 12px;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+
+}
+
+#related img:hover {
+  transform: scale(1.2);
+}
+
+
+
+/* Form container styles */
+#form-container {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 500px;
+  height: 330px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 10000;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #ccc;
+}
+
+#form-container button {
+  padding: 10px 20px;
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.addimage {
+  display: flex;
+  justify-content: flex-end;
+}
+.addimage button {
+  background-color: #2f412f;      /* fresh green */
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  padding:12px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(64, 88, 65, 0.4);
+
+}
+
+.addimage button:hover {
+  background-color: #556656;      /* darker green on hover */
+}
+
+/* Back, Prev, Next Icons - Always fixed and visible when shown */
+#backToGallery,
+#prev-image,
+#next-image {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 9999;
+  filter: invert(1);
+  display: none; /* initially hidden */
+}
+
+#backToGallery {
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+#related {
+  column-width: 220px; /* Try values between 150px – 200px */
+  column-gap: 12px;
+  padding: 10px;
+}
+
+
+
+
+
+
+#prev-image {
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+#next-image {
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+/* Layout wrapper inside full-view */
+.firstchild {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Make background blur when full-view is open */
+.blur {
+  filter: blur(5px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+
+.main-image-wrapper {
+  position: relative;
+  display: inline-block;
+  line-height: 0; /* Prevent whitespace below image */
+}
+.main-image-wrapper:hover .deletimage {
+  opacity: 1;
+}
+.main-image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+  border-radius: 8px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+
+
+#download-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px; /* keep on right */
+  width: 40px;
+  height:40px;
+  border-radius: 10px;
+
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+  filter: invert(1);
+   transition: transform  0.3s ease;
+     filter: invert(1);
+}
+
+.deletimage {
+  position: absolute;
+  top: 10px;
+  right: 60px; /* shift left from download icon */
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 2;
+  filter: invert(1);
+  border-radius: 50%;
+ 
+    opacity: 0;
+  transition: transform 0.3s ease;
+}
+
+
+.main-image-wrapper:hover::before {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+.main-image-wrapper:hover #download-btn {
+  opacity: 1;
+}
+#download-btn:hover{
+    transform: scale(1.2);
+      background-color: rgb(170, 116, 130);
+}
+.deletimage:hover{
+  background-color: rgb(98, 151, 126);
+    transform: scale(1.2);
+}
