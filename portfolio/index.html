@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abebech|portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+
+body {
+  margin: 0;
+ overflow: hidden;
+  background: #0f0f0f;
+}
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: -10; /* Push it below blobs */
+}
+
+
+
+
+
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+.blob {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00ffe1, #6f00ff);
+  opacity: 0.2;
+  filter: blur(100px);
+  animation: float 10s infinite alternate;
+  
+  mix-blend-mode: screen;
+}
+
+
+
+.blob1 {
+  top: 10%;
+  left: 25%;
+  animation-delay: 0s;
+}
+
+.blob2 {
+  top: 50%;
+  left: 70%;
+  animation-delay: 6s;
+}
+
+.blob3 {
+  top: 30%;
+  left: 45%;
+  animation-delay: 8s;
+ 
+  
+
+}
+
+@keyframes float {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-200px, 200px) scale(1.1); }
+  100% { transform: translate(200px, -200px) scale(0.9); }
+}
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.7);
+    opacity: 0.3;
+  }
+}
+
+.color-glow {
+  position: absolute;
+  top: -40px;
+  right: -30px;
+  width: 200px;
+  height: 200px;
+ background: radial-gradient(circle, #ec35c5, #374fda);
+  filter: blur(100px);
+  opacity: 0.6;
+  z-index: -1;
+  
+  animation: heartbeat 6s ease-in-out infinite;
+}
+.color2-glow {
+  position: absolute;
+  bottom:  -40px;
+ left: -30px;
+  width: 100px;
+  height: 100px;
+ background: radial-gradient(circle,  #2089cf);
+  filter: blur(100px);
+  opacity: 0.2;
+  z-index: -1;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+.color1-glow {
+  position: absolute;
+   top:50px;
+   left: 100px;
+   width: 100px;
+  height: 100px;
+ background: radial-gradient(circle,  #793bc0);
+  filter: blur(80px);
+  opacity: 0.6;
+  z-index: -1;
+}
+
+
+
+
+
+
+
+nav {
+  padding: 0;
+  transition: background 0.3s ease;
+}
+
+nav.mobile-active {
+ background-color: #020202;
+
+  
+}
+
+
+nav .name{
+background: linear-gradient(135deg,#4293c2,rgb(74, 30, 145),  #802eec,#2e96d3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+
+}
+.name h2{
+  margin: 0;
+}
+.navdiv {
+  display: flex;
+   
+  justify-content: space-between;
+  align-items: center;
+  padding:20px 40px;
+   margin: 0;
+}
+@media (max-width: 768px) {
+  .navdiv {
+    padding: 15px 20px;
+     
+     /* smaller for tablets and phones */
+  }
+}
+.navigaterDiv {
+  display: flex;
+  gap: 30px;
+    transition: all 0.3s ease-in-out;
+}@media (max-width: 768px) {
+  .navigaterDiv {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* below nav */
+    left: 0;
+    right: 0;
+    background-color: #020202;
+    padding: 20px 0 30px 40px;
+    gap: 25px;
+    overflow: hidden;
+
+    max-height: 0;             /* start hidden */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .navigaterDiv.show {
+    max-height: 300px;          /* enough to show links */
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+
+}
+a:hover {
+ background: radial-gradient(circle, #4393ac, #7519ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: underline;
+  
+}
+.menu-icon {
+  display: none;
+  filter: invert(1);
+  cursor: pointer;
+  align-items: end;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block; 
+  }
+}
+
+  .menu-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+ <div class="grid-overlay"></div>
+<div class="background">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+</div>
+<div class="color-glow"></div>
+<div class="color1-glow"></div>
+<div class="color2-glow"></div>
+
+  <nav id="mainNav">
+    <div class="navdiv">
+      <div class="name">
+        <h2>Abebech Debebe</h2>
+      </div>
+   <div class="menu-icon" onclick="toggleMenu()">
+  <img id="openIcon" src="images/menu.svg" alt="Menu">
+  <img id="closeIcon" src="images/close-bold-svgrepo-com.svg" alt="Close" style="display: none;">
+</div>
+
+<div class="navigaterDiv" id="navMenu">
+  <a href="">HOME</a>
+  <a href="">About</a>
+  <a href="">Portfolio</a>
+  <a href="">Contact</a>
+</div>
+
+    </div>
+  </nav>
+
+
+  <script src="script.js"></script>
+</body>
+</html> 
