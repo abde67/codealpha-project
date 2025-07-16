@@ -3,15 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
   <title>Abebech|portfolio</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    
+ html {
+  scroll-behavior: smooth;
+}
+   
 
 body {
-  margin: 0;
- overflow: hidden;
+ font-family: 'Inter', sans-serif;
   background: #0f0f0f;
+  
+ overflow-x: hidden;
+}
+h1, h2, h3, .name h2, .stat-label p, .tab-btn p, .project-card h3 {
+  font-family: 'Poppins', sans-serif;
 }
 .grid-overlay {
   position: fixed;
@@ -46,7 +55,7 @@ body {
   height: 400px;
   border-radius: 50%;
   background: linear-gradient(135deg, #00ffe1, #6f00ff);
-  opacity: 0.2;
+  opacity: 0.3;
   filter: blur(100px);
   animation: float 10s infinite alternate;
   
@@ -91,39 +100,39 @@ body {
     opacity: 0.3;
   }
 }
-
 .color-glow {
-  position: absolute;
+  position: fixed;
   top: -40px;
   right: -30px;
   width: 200px;
   height: 200px;
- background: radial-gradient(circle, #ec35c5, #374fda);
+  background: radial-gradient(circle, #ec35c5, #374fda);
   filter: blur(100px);
   opacity: 0.6;
   z-index: -1;
-  
   animation: heartbeat 6s ease-in-out infinite;
 }
+
 .color2-glow {
-  position: absolute;
-  bottom:  -40px;
- left: -30px;
+  position: fixed;
+  bottom: -40px;
+  left: -30px;
   width: 100px;
   height: 100px;
- background: radial-gradient(circle,  #2089cf);
+  background: radial-gradient(circle, #2089cf);
   filter: blur(100px);
-  opacity: 0.2;
+  opacity: 0.4;
   z-index: -1;
   animation: heartbeat 2s ease-in-out infinite;
 }
+
 .color1-glow {
-  position: absolute;
-   top:50px;
-   left: 100px;
-   width: 100px;
+  position: fixed;
+  top: 50px;
+  left: 100px;
+  width: 100px;
   height: 100px;
- background: radial-gradient(circle,  #793bc0);
+  background: radial-gradient(circle, #793bc0);
   filter: blur(80px);
   opacity: 0.6;
   z-index: -1;
@@ -135,8 +144,16 @@ body {
 
 
 
-nav {
-  padding: 0;
+  nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+ 
+ width: 100%;
+  z-index: 1000;
+
+ margin: auto;
+ 
   transition: background 0.3s ease;
 }
 
@@ -151,20 +168,29 @@ nav .name{
 background: linear-gradient(135deg,#4293c2,rgb(74, 30, 145),  #802eec,#2e96d3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bold;
 
 }
+nav.nav-scrolled {
+  background: rgba(19, 18, 27, 0.85);
+ 
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.05);
+}
+
 .name h2{
   margin: 0;
 }
 .navdiv {
   display: flex;
-   
+ padding-left: 53px;
+  padding-right: 53px;
+   height: 64px;
   justify-content: space-between;
   align-items: center;
-  padding:20px 40px;
-   margin: 0;
+ 
+ 
 }
 @media (max-width: 768px) {
   .navdiv {
@@ -174,6 +200,8 @@ background: linear-gradient(135deg,#4293c2,rgb(74, 30, 145),  #802eec,#2e96d3);
   }
 }
 .navigaterDiv {
+   
+
   display: flex;
   gap: 30px;
     transition: all 0.3s ease-in-out;
@@ -186,7 +214,7 @@ background: linear-gradient(135deg,#4293c2,rgb(74, 30, 145),  #802eec,#2e96d3);
     left: 0;
     right: 0;
     background-color: #020202;
-    padding: 20px 0 30px 40px;
+    padding: 30px 0 40px 40px;
     gap: 25px;
     overflow: hidden;
 
@@ -203,13 +231,13 @@ background: linear-gradient(135deg,#4293c2,rgb(74, 30, 145),  #802eec,#2e96d3);
   }
 }
 
-a {
+ .navigaterDiv a {
   color: white;
   text-decoration: none;
   font-size: 20px;
 
 }
-a:hover {
+.navigaterDiv a:hover {
  background: radial-gradient(circle, #4393ac, #7519ee);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -234,15 +262,838 @@ a:hover {
   height: 30px;
 }
 
-.menu-icon {
-  display: none;
-  cursor: pointer;
+
+.allbody{
+  margin: auto;
+}
+.homesection{
+  color: white;
+  margin-left: 115px;
+  
+  width: 80%;
+  height: 900px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 120px;
+  flex-wrap: wrap;
+
 }
 
-@media (max-width: 768px) {
-  .menu-icon {
-    display: block;
+@media (max-width: 968px) {
+  .homesection {
+    padding-left: 20px;
+   margin: 20px;
+  padding-top: 100px; 
+  height: auto;
   }
+
+  .lefthome {
+    margin-top: 50px;
+   text-align: start;
+   padding-left: 10px;
+  }
+
+}
+
+
+.slowgandivwrapper{
+  width: 200px;
+  padding: 10px;
+
+box-shadow: 5px 5px 4px 5px rgba(186, 40, 206, 0.3);
+
+  border-radius: 30px;
+}
+.slowgandivwrapper span{
+  align-items: center;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px
+}
+.slowgandivwrapper img{
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+.riighthome img{
+  width:500px ;
+  height: auto;
+}
+  
+ .glow-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  background: #1a1a2e; /* dark base */
+  color: #b388ff;
+  font-size: 18px;
+  border: 1px solid rgba(176, 133, 255, 0.3);
+  box-shadow: 0 0 10px rgba(176, 133, 255, 0.2);
+  transition: box-shadow 0.3s ease, color 0.3s ease;
+ 
+  text-shadow: 0 0 5px rgba(176, 133, 255, 0.3);
+}
+
+/* Gradient text */
+.glow-button span {
+  background: linear-gradient(90deg, #9c5cff, #cd80ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hover = brighter glow */
+.glow-button:hover {
+  box-shadow: 0 0 20px rgba(176, 133, 255, 0.6),
+              0 0 40px rgba(176, 133, 255, 0.3);
+  text-shadow: 0 0 8px rgba(176, 133, 255, 0.6);
+}
+
+.h3wrapper h1{
+ font-size: 90px;
+  margin: 0;
+  line-height: 1.1;
+  
+  
+}
+.h3wrapper span{
+  line-height: 1.3;
+ 
+}
+.glow-text {
+  background: linear-gradient(90deg,rgb(78, 184, 192), #9768dd, #cd80ff); /* Match your button glow */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
+}
+
+
+.languges {
+  display: flex;
+  align-items: center;
+ gap: 30px;
+
+}
+.languges div{
+    padding: 12px 24px;
+  border-radius: 50px;
+  background: rgba(84, 87, 230, 0.281); /* dark base */
+
+ line-height: 1;
+  font-size: 18px;
+  border: 1px solid rgba(182, 159, 238, 0.3);
+  box-shadow: 0 0 10px rgba(176, 133, 255, 0.2);
+
+  
+  color: rgb(180, 176, 176);
+  
+}
+.lefthome p{
+  font-size:18px;
+  text-align: start;
+  line-height: 1.6;
+}
+.insidenavigatter{
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.secondnavigater{
+ 
+  text-decoration: none;
+  
+  display: flex;
+  align-items: center;
+  
+  color: rgb(235, 232, 232);
+}
+.secondnavigater>img{
+  width: 20px;
+  height: 20px;
+  filter: invert(100%) brightness(80%);
+   transition: filter 0.3s ease;
+}
+.insidenavigatter a{
+   padding: 8px 24px;
+   width: 100px;
+ margin-top: 20px;
+ font-size: 13px;
+ 
+  color: rgb(204, 199, 199); /* Make sure text is always white */
+  background: #1a1a2e;
+  border: 1px solid rgba(176, 133, 255, 0.3);
+  box-shadow: 0 0 10px rgba(176, 133, 255, 0.2);
+  text-shadow: 0 0 5px rgba(176, 133, 255, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+}
+.insidenavigatter a:hover{
+ color: #e6d4ff; /* Light glow color */
+  text-shadow: 0 0 8px rgba(176, 133, 255, 0.8);
+  box-shadow: 0 0 20px rgba(176, 133, 255, 0.6),
+              0 0 40px rgba(176, 133, 255, 0.3);
+}
+ 
+.mediacontact {
+  display: flex;
+  gap: 30px;
+  
+  margin-top: 30px;
+}
+
+.media-button {
+  background: rgba(148, 100, 224, 0.15); /* soft dark glass */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* thin border */
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+
+}
+
+.media-button:hover {
+  background: rgba(148, 100, 224, 0.15);
+  transform: scale(1.1);
+ box-shadow: 0 0 20px rgba(176, 133, 255, 0.6),
+              0 0 40px rgba(176, 133, 255, 0.3);
+}
+
+.media-button img {
+  width: 24px;
+  height: 24px;
+   /* makes icon white */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.about-me {
+  padding: 100px 0;
+  color: rgb(255, 255, 255);
+  background: transparent;
+}
+
+.aboutmecontainer {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+
+.aboutmecontainer h1 {
+  font-size: 3rem;
+  background: linear-gradient(135deg, #43a8d6, #9550f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 30px;
+}
+
+.entering p {
+  
+
+  color: #a09d9d;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  max-width: 700px;
+  margin: auto;
+}
+
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 30px;
+}
+
+.stat-card {
+     background: rgba(90, 70, 150, 0.3);
+  padding: 20px;
+  border-radius: 16px;
+   transition: transform 0.3s ease;
+ 
+  width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+}
+
+.icon-number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.icon-number img:first-child {
+  width: 40px;
+  height: 40px;
+  filter: invert(100%) brightness(120%);
+  padding: 5px;
+  background-color: rgb(207, 205, 205);
+  border-radius: 50%;
+}
+.count-work-number{
+  width: 70px;
+  height: 70px;
+   filter: invert(100%) brightness(120%);
+}
+.stat-label p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #b388ff;
+  margin: 10px 0;
+}
+
+.stat-description {
+  display: flex;
+  justify-content: space-between;
+  color: #aaa;
+  font-size: 1rem;
+  align-items: center;
+  text-align: left;
+}
+
+.stat-description img {
+  width: 20px;
+  height: 20px;
+  filter: invert(100%) brightness(150%);
+}
+
+.button-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button {
+  background: linear-gradient(to right, #442f58, #6b3ea7);
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(176, 133, 255, 0.4);
+}
+
+.button:hover {
+  box-shadow: 0 0 25px rgba(176, 133, 255, 0.6);
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.portfolio-section {
+  padding: 100px 0;
+  background: transparent;
+  color: white;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.portfolio-section h2 {
+  font-size: 3rem;
+  background: linear-gradient(135deg, #43a8d6, #9550f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+}
+
+/* Tabs */
+.portfolio-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: #1a1a2e;
+  color: #b388ff;
+  border: 1px solid rgba(176, 133, 255, 0.3);
+  border-radius: 30px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(176, 133, 255, 0.2);
+   transition: all 0.3s ease, transform 0.3s ease;
+}
+
+
+
+.tasks-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.tasks-grid div {
+  background: rgba(71, 74, 211, 0.281);
+   width: 180px;
+ height: 200px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  justify-content: center;
+}
+
+.tasks-grid div:hover {
+  transform: scale(1.1);
+}
+
+
+@media (max-width: 600px) {
+  .tasks-grid {
+    gap: 15px;
+  }
+
+  .tasks-grid img {
+    width: 70px;
+  }
+}
+
+
+
+.tab-btn img {
+  width: 20px;
+  height: 20px;
+  filter: invert(100%) brightness(120%);
+}
+
+.tab-btn:hover{
+  box-shadow: 0 0 20px rgba(176, 133, 255, 0.3);
+  background: rgba(176, 133, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.tab-btn.active {
+  background: rgba(176, 133, 255, 0.3);
+  border: 1px solid rgba(176, 133, 255, 0.4);
+  color: #ffffff;
+}
+
+/* Portfolio Content */
+.portfolio-content {
+  margin-top: 30px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Project Cards */
+.projects-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project-card {
+    background: rgba(32, 32, 70, 0.2);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  width: 380px;
+  box-shadow: 0 0 15px rgba(176, 133, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+@media (max-width: 500px) {
+  .project-card {
+    width: 90%;
+  }
+}
+
+
+
+
+
+.project-card img {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+   transition: transform 0.5s ease, filter 0.5s ease;
+  will-change: transform;
+}
+
+.project-card img:hover {
+  transform: scale(1.05) rotate(1deg);
+  filter: brightness(1.2) drop-shadow(0 0 10px rgba(176, 133, 255, 0.5));
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.project-links a {
+  color: #b388ff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #b388ff;
+}
+
+/* Tech Tasks */
+#tasks img {
+  width: 120px;
+  height: auto;
+  margin: 20px;
+  transition: transform 0.3s ease;
+}
+
+#tasks img:hover {
+  transform: scale(1.1);
+}
+
+/* Certificates */
+.certificates-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.certificate-card {
+  background: #2c2c5e;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(176, 133, 255, 0.2);
+  width: 250px;
+  text-align: center;
+}
+
+.certificate-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.certificate-card p {
+  font-size: 1rem;
+  color: #aaa;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+/* CONTACT SECTION */
+
+.contactsection {
+  
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.introcontact {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.bigintro p {
+  font-size: 2.5rem;
+ background: linear-gradient(135deg, #43a8d6, #9550f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+ 
+}
+
+.normalintro p {
+  font-size: 1.1rem;
+  color: #cccccc;
+  margin-top: 0.5rem;
+  font-weight: 300;
+}
+
+.contact-format {
+  display: flex;
+  width: auto;
+  justify-content: center;
+  padding: 30px;
+  border-radius: 27px;
+  background-color: #47454550;
+}
+
+.insideformat-div {
+   background-color: #5e5c5c59;
+  border-radius: 20px;
+  padding: 3rem;
+  max-width: 600px;
+  width: 100%;
+ 
+ 
+}
+
+.get-in-touch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.get-in-touch p {
+ background: linear-gradient(135deg, #7b54c5, #9550f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 600;
+  
+}
+
+.get-in-touch img {
+  width: 40px;
+  height: 40px;
+  filter: invert(0.1);
+}
+
+.question {
+  color: #aaaaaa;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.inputformat {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputname,
+.emailinput,
+.messageinput {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #74737373;
+  border: 1px solid #333;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.inputname:hover,
+.emailinput:hover,
+.messageinput:hover {
+  border-color: #5438f52d;
+  
+}
+
+.inputformat input,
+.inputformat textarea {
+  background:transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #eee;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.inputformat textarea {
+  height: 120px;
+  resize: none;
+}
+
+.inputformat img {
+  width: 24px;
+  height: 24px;
+  filter: invert(70%);
+}
+
+#submit {
+    background: linear-gradient(135deg, #4372d6, #9550f0);
+  color: #f0eeee;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 2rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px #2d259956;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: 0.3s ease;
+}
+
+#submit:hover {
+    background: linear-gradient(135deg, #2e4fb9, #9550f0);
+  box-shadow: 0 0 15px #6975e6;
+}
+
+/* Divider Line */
+.insideformat-div hr {
+  margin: 2.5rem 0;
+  border: 0.5px solid #444;
+}
+
+/* Social Contacts */
+.optionalcontact {
+  color: #ccc;
+    background: #74737373;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.optionalcontact p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  margin: 0;
+}
+
+.connectme{
+  padding: 20px;
+}
+.optionalcontact .graytext{
+color: gray;
+font-size: 18px;
+}
+.rectangle {
+  display: inline-block;
+  width: 40px;
+  height: 6px;
+ background: linear-gradient(135deg, #704fca, #9550f0);
+  margin-right: 0.5rem;
+  border-radius: 2px;
+}
+
+.optionalcontact a {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+  padding: 20px;
+  
+  
+    background: transparent;
+  border-radius: 10px;
+  border  : solid 0.5px gray;
+
+}
+
+.optionalcontact a:hover {
+  color: #00ffff;
+ 
+}
+
+.optionalcontact img {
+  width: 40px;
+  height: 40px;
+  padding: 6px;
+  border-radius: 3px;
+}
+.optionalcontact .inimage img{
+  background-color: #1100ff36;
+}
+.optionalcontact .instaimage img{
+  background-color: #e45d5d36;
+}
+.optionalcontact .gitimage img{
+  background-color: #fffefe36;
+}
+.in-description,
+.insta-description,
+.git-descripton {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
 }
 
 
@@ -261,7 +1112,7 @@ a:hover {
 <div class="color2-glow"></div>
 
   <nav id="mainNav">
-    <div class="navdiv">
+    <div class="navdiv "  >
       <div class="name">
         <h2>Abebech Debebe</h2>
       </div>
@@ -271,15 +1122,307 @@ a:hover {
 </div>
 
 <div class="navigaterDiv" id="navMenu">
-  <a href="">HOME</a>
-  <a href="">About</a>
-  <a href="">Portfolio</a>
-  <a href="">Contact</a>
+  <a href="#home">HOME</a>
+  <a href="#about">About</a>
+  <a href="#Portfolio">Portfolio</a>
+  <a href="#contact">Contact</a>
 </div>
 
     </div>
   </nav>
+<div class="allbody">
+  
+  
+   <div class="homesection" id="home">
+     <div class="lefthome">
+      <div class="slowgandivwrapper  glow-button">
+        <span>
+          <img src="images/mace.svg" alt="">
+         Ready to Innovate
+        </span>
+      </div>
+  
+      <div class="h3wrapper">
+        <span><h1>Junior Frontend </h1>
+        <h1 class="glow-text">Developer</h1></span>
+      </div>
+      <p>Computer science Student</p>
 
+      <div class="languges">
+        <div>HTML</div>
+        <div>JavaScript</div>
+        <div>CSS</div>
+        <div>SQL</div>
+      </div>
+<div class="insidenavigatter">
+  <a class="secondnavigater" href="#Portfolio">
+    Projects <img src="images/arrow-top-right-bold-box.svg" alt="">
+  </a>
+  <a class="secondnavigater" href="#contact">
+    Contact <img src="images/email-outline.svg" alt="">
+  </a>
+</div>
+
+   <div class="mediacontact">
+    <a href="https://github.com/abde67">
+      <button class="media-button">
+        <div><img src="images/icons8-github.svg" alt=""></div>
+      </button>
+    </a><a href="https://www.instagram.com/ehite_blabla/">
+      <button class="media-button">
+        <div><img src="images/icons8-instagram.svg" alt=""></div>
+      </button>
+    </a><a href="https://www.linkedin.com/in/abebech-debebe/">
+      <button class="media-button">
+        <div><img src="images/icons8-linkedin.svg" alt=""></div>
+      </button>
+    </a>
+   </div>
+     </div>
+  
+     <div class="riighthome">
+      <img src="images/Premium_Vector___App_development_concept_with_phone_and_desktop-removebg-preview.png" alt="">
+     </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="about-me" id="about">
+  <div class="aboutmecontainer">
+    <div class="entering">
+      <h1>About Me</h1>
+      <p>
+        I'm Abebech Debebe, a passionate Computer Science student dedicated to frontend development. Over the past 3 years, I’ve been learning and building projects like image galleries and calculators to turn ideas into interactive experiences. While I don’t have professional experience yet, I’m focused on mastering modern technologies through real-world practice.
+      </p>
+    </div>
+
+    <div class="button-container">
+      
+      <a href="#project" class="button view-projects"><i class="fa fa-code"></i> View Projects</a>
+    </div>
+
+    <div class="stats-container">
+      <div class="stat-card">
+        <div class="icon-number">
+          <img src="images/code-tags.svg" alt="">
+          <img class="count-work-number" src="images/numeric-3.svg" alt="">
+        </div>
+        <div class="stat-label"><p>TOTAL PROJECTS</p></div>
+        <div class="stat-description">
+          
+            <div>
+              <p>Practical projects like Image Gallery, Calculator, and more.</p>
+            </div>
+            <div><img src="images/arrow-top-right-thin.svg" alt=""></div> 
+                    </div>
+         
+      </div>
+
+      <div class="stat-card">
+        <div class="icon-number">
+          <img src="images/certificate.svg" alt="">
+          <img class="count-work-number" src="images/numeric-0.svg" alt="">
+        </div>
+        <div class="stat-label"><p>CERTIFICATES</p></div>
+        <div class="stat-description">
+          
+            <div><p>None yet — but learning every day!</p></div>
+            <div><img src="images/arrow-top-right-thin.svg" alt=""></div>
+         
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="icon-number">
+          <img src="images/web.svg" alt="">
+          <img class="count-work-number" src="images/numeric-0.svg" alt="">
+        </div>
+        <div class="stat-label"><p>YEARS OF EXPERIENCE</p></div>
+        <div class="stat-description">
+       
+            <div>
+              <p>3 years of self-driven study and hands-on exploration.</p>
+            </div>
+            <div><img src="images/arrow-top-right-thin.svg" alt=""></div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+ <div id="Portfolio" class="portfolio-section">
+     <h2>Portfolio</h2>
+
+   
+    <div class="portfolio-tabs">
+      <button class="tab-btn active" data-tab="projects">
+        <img src="images/code-tags.svg" alt=""> 
+        <p>Projects</p></button>
+      <button class="tab-btn" data-tab="tasks">
+      <img src="images/semantic-web.svg" alt="">
+        <p>Tech Tasks</p></button>
+      <button  class="tab-btn" data-tab="certificates">
+        <img src="images/certificate.svg" alt="">
+        <p>Certificates</p></button>
+    </div>
+
+    
+    <div class="portfolio-content">
+   
+      <div class="tab-content active" id="projects">
+        <div class="projects-grid">
+          <div  id="project" class="project-card">
+            <img src="images/portfolioimage.png" alt="Project 1 Screenshot" />
+            <h3>Personal Portfolio Website</h3>
+            <p>A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
+            <div class="project-links">
+              <a href="#" target="_blank">GitHub</a>
+              <a href="#" target="_blank">Live Demo</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="images/image gallery screenshot.png" alt="Project 2 Screenshot" />
+            <h3>Image Gallery app</h3>
+            <p>SImple and beautifull image gallery</p>
+            <div class="project-links">
+              <a href="#" target="_blank">GitHub</a>
+              <a href="#" target="_blank">Live Demo</a>
+            </div>
+          </div>
+         <div class="project-card">
+            <img src="images/calculater.png" alt="Project 3 Screenshot" />
+            <h3>calculator</h3>
+            <p>Simple basic calculator</p>
+            <div class="project-links">
+              <a href="#" target="_blank">GitHub</a>
+              <a href="#" target="_blank">Live Demo</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+     
+  <div class="tab-content" id="tasks">
+  <div class="tasks-grid">
+    <div class="task-box"><img src="images/231_Web_Development_-_Websites__Applications_and_Software-removebg-preview.png" alt="HTML"></div>
+    <div class="task-box"><img src="images/CSS3_Badge_with_CSS_text-removebg-preview.png" alt="CSS"></div>
+    <div class="task-box"><img src="images/JavaScript_Logo__JS__-_PNG_Logo_Vector_Brand_Downloads__SVG__EPS_-removebg-preview.png" alt="JavaScript"></div>
+    <div class="task-box"><img src="images/download-removebg-preview.png" alt="SQL"></div>
+  </div>
+</div>
+
+
+
+      
+      <div class="tab-content"  id="certificates">
+        <div class="certificates-grid">
+          <div class="certificate-card">
+           <img src="images/certificat image.jpg" alt="first certificate card">
+            <p>No certificate yet</p>
+          </div>
+          <div class="certificate-card">
+            <img src="images/certificat image.jpg" alt="second certificate card">
+           <p>No certificate yet</p>
+          </div>
+        </div>
+      </div>
+    </div>
+ </div>
+ 
+ <div class="contactsection" id="contact">
+  <div class="introcontact">
+    <div class="bigintro"><p>Contact Me</p></div>
+    <div class="normalintro"><p>Got a question? Send me a message, and I'll get back to you soon.</p></div>
+  </div>
+
+  <div class="contact-format">
+    <div class="insideformat-div">
+      <div class="get-in-touch">
+        <p>Get in Touch</p>
+        <img src="images/hub-outline.svg" alt="Hub Icon">
+      </div>
+
+      <p class="question">Have something to discuss? Send me a message and let's talk.</p>
+
+      <!-- Form Starts -->
+      <form class="inputformat" action="https://formspree.io/f/your-form-id" method="POST">
+        <div class="inputname">
+          <img src="images/account.svg" alt="Account Icon">
+          <input type="text" name="name" id="Name" placeholder="Your Name" required>
+        </div>
+
+        <div class="emailinput">
+          <img src="images/email-outline.svg" alt="Email Icon">
+          <input type="email" name="email" id="email" placeholder="Your Email" required>
+        </div>
+
+        <div class="messageinput">
+          <img src="images/message.svg" alt="Message Icon">
+          <textarea name="message" id="message" placeholder="Your Message" required></textarea>
+        </div>
+
+        <button type="submit" id="submit">
+          <img src="images/send.svg" alt="Send Icon"> Send Message
+        </button>
+      </form>
+      <!-- Form Ends -->
+
+      <hr>
+
+      <div class="optionalcontact">
+        <p class="connectme"><span class="rectangle"></span> Contact With Me</p>
+
+        <a href="https://www.linkedin.com/in/abebech-debebe/" target="_blank">
+          <div class="inimage">
+            <img src="images/icons8-linkedin.svg" alt="LinkedIn">
+          </div>
+          <div class="in-description">
+            <p>Let's Connect</p>
+            <p class="graytext">on LinkedIn</p>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/ehite_blabla/" target="_blank">
+          <div class="instaimage">
+            <img src="images/icons8-instagram.svg" alt="Instagram">
+          </div>
+          <div class="insta-description">
+            <p >Instagram</p>
+            <p class="graytext">@ehite_blabla</p>
+          </div>
+        </a>
+
+        <a href="https://github.com/abde67" target="_blank">
+          <div class="gitimage"><img src="images/icons8-github.svg" alt="GitHub"></div>
+          <div class="git-descripton">
+            
+            <p>GitHub</p>
+            <p class="graytext">@abebech</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
   <script src="script.js"></script>
 </body>
