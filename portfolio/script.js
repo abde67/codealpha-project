@@ -22,6 +22,18 @@ function toggleMenu() {
   });
 
 
+const links = document.querySelectorAll('#navMenu a');
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById("navMenu").classList.remove("show");
+    document.getElementById("mainNav").classList.remove("mobile-active");
+    document.getElementById("openIcon").style.display = "block";
+    document.getElementById("closeIcon").style.display = "none";
+  });
+});
+
+
+
    const tabButtons = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
 
@@ -41,3 +53,24 @@ tabButtons.forEach(button => {
 });
 
 
+  const form = document.getElementById('contactForm');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault(); // Prevent normal form submit
+
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      alert("✅ Message sent successfully!");
+      form.reset();
+    } else {
+      alert("❌ There was an error. Please try again.");
+    }
+  });  this 
